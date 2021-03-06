@@ -9,7 +9,4 @@ To find row  store utilization:
 
 To find log segments and services related with its state
 
-##### ***SELECT b.host, b.service_name, a.state, COUNT(*) 
-			FROM "PUBLIC"."M_LOG_SEGMENTS" a 
-			JOIN "PUBLIC"."M_SERVICES" b on (a.host = b.host AND a.port = b.port) 
-			GROUP BY b.host, b.service_name, a.state;***
+##### ***SELECT b.host, b.service_name, a.state, COUNT(*) FROM "PUBLIC"."M_LOG_SEGMENTS" a JOIN "PUBLIC"."M_SERVICES" b on (a.host = b.host AND a.port = b.port) GROUP BY b.host, b.service_name, a.state;***
