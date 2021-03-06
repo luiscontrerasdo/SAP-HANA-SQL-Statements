@@ -6,8 +6,8 @@ SAP Hana SQL Statements for retrieving performance and status information.
 To find row  store utilization:
 
 ```
-SELECT round (sum(USED_FIXED_PART_SIZE + USED_VARIABLE_PART_SIZE)/1024/1024) AS "Row Tables MB" 
-FROM M_RS_TABLES;
+#####SELECT round (sum(USED_FIXED_PART_SIZE + USED_VARIABLE_PART_SIZE)/1024/1024) AS "Row Tables MB" 
+FROM M_RS_TABLES;#####
 ```
 
 To find column store utilization :- Completado
@@ -51,4 +51,3 @@ WHERE SERVER_TIMESTAMP
 BETWEEN '01.04.2018 08:00:00' AND '02.12.2021 18:00:00'
 ORDER BY TOTAL_MEMORY_USED_SIZE DESC;
 ```
-
