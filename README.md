@@ -32,3 +32,12 @@ To find Hana DB Size
 SELECT ROUND (sum(allocated_page_size)/1024/1024/1024) "Value GB" 
 FROM m_converter_statistics;
 ```
+
+To check the peak memory usage
+
+```
+SELECT TOP 1 HOST, SERVER_TIMESTAMP, round(TOTAL_MEMORY_USED_SIZE/1024/1024/1024, 2) as "Used Memory GB" 
+FROM _SYS_STATISTICS.HOST_SERVICE_MEMORY 
+WHERE SERVICE_NAME = 'indexserver'
+ORDER BY TOTAL_MEMORY_USED_SIZE DESC;
+```
