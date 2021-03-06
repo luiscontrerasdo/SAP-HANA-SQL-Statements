@@ -51,3 +51,32 @@ WHERE SERVER_TIMESTAMP
 BETWEEN '01.04.2018 08:00:00' AND '02.12.2021 18:00:00'
 ORDER BY TOTAL_MEMORY_USED_SIZE DESC;
 ```
+
+To list all IDLE sessions:
+
+```
+SELECT CONNECTION_ID, IDLE_TIME 
+FROM M_CONNECTIONS 
+WHERE CONNECTION_STATUS = 'IDLE' AND CONNECTION_TYPE = 'Remote' 
+ORDER BY IDLE_TIME DESC;
+```
+
+Product usage:
+```
+SELECT product_usage 
+FROM m_license;
+```
+
+Table in memory value:
+```
+SELECT (sum(memory_size_in_total)/1024/1024/1024) AS "VALUE IN MB"
+FROM M_CS_TABLES;
+```
+
+Total successful complete data backup
+
+```
+SELECT COUNT(backup_id) 
+FROM M_BACKUP_CATALOG 
+WHERE entry_type_name = 'complete data backup'  and state_name = 'successful';
+```
