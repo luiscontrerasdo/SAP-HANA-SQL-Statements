@@ -80,3 +80,9 @@ SELECT COUNT(backup_id)
 FROM M_BACKUP_CATALOG 
 WHERE entry_type_name = 'complete data backup'  and state_name = 'successful';
 ```
+
+Disk Size:
+```
+SELECT ROUND(SUM((disk_size)/1024/1024/1024)) 
+FROM m_table_persistence_statistics;
+```
